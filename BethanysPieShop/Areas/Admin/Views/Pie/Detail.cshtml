@@ -1,0 +1,34 @@
+﻿@model Pie
+
+
+<h1>Detail: @Model.Name</h1>
+
+<div style="margin-bottom: 50px">
+    <h2>Id: @Model.PieId</h2>
+</div>
+<div style="margin-bottom: 50px">
+    <h2>Short Description: @Model.ShortDescription</h2>
+</div>
+<div style="margin-bottom: 50px">
+    <h2>Long Description: @Model.LongDescription</h2>
+</div>
+<div style="margin-bottom: 50px">
+    <h2>Price: @Model.Price</h2>
+</div>
+<div style="margin-bottom: 50px">
+    <h2>ImageUrl: @Model.ImageUrl</h2>
+</div>
+<div style="margin-bottom: 50px">
+    <h2>ImageThumbnailUrl: @Model.ImageThumbnailUrl</h2>
+</div>
+<div style="margin-bottom: 50px">
+    <h2>Is Pie of The Week: @Model.IsPieOfTheWeek</h2>
+</div>
+<div style="margin-bottom: 50px">
+    <h2>In Stock: @Model.InStock</h2>
+</div>
+<div style="margin-bottom: 50px">
+    <h2>Category Name: @Model.Category.CategoryName</h2>
+</div>
+
+<a asp-controller="Pie" asp-action="List" class="btn btn-dark">All Categories</a>

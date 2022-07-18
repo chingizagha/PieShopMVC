@@ -1,0 +1,94 @@
+﻿@model Pie
+
+@using (Html.BeginForm("Edit", "Pie", FormMethod.Post))
+{
+     @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="PieId" value="@Model.PieId"/>
+
+    <div class="form-horizontal">
+
+    <div class="form-group">
+        <label asp-for="@Model.Name" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="@Model.Name" class="form-control" value="@Model.Name"/>
+            <span asp-validation-for="@Model.Name" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.ShortDescription" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="@Model.ShortDescription" class="form-control" value="@Model.ShortDescription"/>
+            <span asp-validation-for="@Model.ShortDescription" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.LongDescription" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="@Model.LongDescription" class="form-control" value="@Model.LongDescription"/>
+            <span asp-validation-for="@Model.LongDescription" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Price" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="@Model.Price" class="form-control" value="@Model.Price"/>
+            <span asp-validation-for="@Model.Price" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.ImageUrl" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="@Model.ImageUrl" class="form-control" value="@Model.ImageUrl"/>
+            <span asp-validation-for="@Model.ImageUrl" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.ImageThumbnailUrl" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="@Model.ImageThumbnailUrl" class="form-control" value="@Model.ImageThumbnailUrl"/>
+            <span asp-validation-for="@Model.ImageThumbnailUrl" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.IsPieOfTheWeek" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="@Model.IsPieOfTheWeek" class="form-control" value="@Model.IsPieOfTheWeek"/>
+            <span asp-validation-for="@Model.IsPieOfTheWeek" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.InStock" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="@Model.InStock" class="form-control" value="@Model.InStock"/>
+            <span asp-validation-for="@Model.InStock" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.CategoryId" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <select asp-for="@Model.CategoryId" class="form-control">
+                @await Component.InvokeAsync("CategorySelect")
+            </select>
+            <span asp-validation-for="@Model.CategoryId" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-5">
+            <input type="submit" class="btn btn-primary" value="Update" />
+        </div>
+    </div>
+
+    </div>
+
+ <a asp-controller="Pie" asp-action="List" class ="btn btn-secondary">Back to categories</a> 
+
+}

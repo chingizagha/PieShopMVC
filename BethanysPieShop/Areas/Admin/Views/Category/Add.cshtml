@@ -1,0 +1,31 @@
+﻿@using BethanysPieShop.Models
+@model Category
+<h1>Add New Category</h1>
+
+<form asp-action="Add" method="post" class="form-horizontal" role="form">
+
+
+    <div class="form-group">
+        <label asp-for="@Model.CategoryName" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="@Model.CategoryName" class="form-control" />
+            <span asp-validation-for="@Model.CategoryName" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Description" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="@Model.Description" class="form-control" />
+            <span asp-validation-for="@Model.Description" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-5">
+            <input type="submit" class="btn btn-primary" value="Complete order" />
+        </div>
+    </div>
+
+</form>
+

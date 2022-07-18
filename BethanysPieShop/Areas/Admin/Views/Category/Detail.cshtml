@@ -1,0 +1,16 @@
+﻿@model Category
+
+
+<h1>Detail: @Model.CategoryName</h1>
+
+<div style="margin-bottom: 50px">
+    <h2>Id: @Model.CategoryId</h2>
+</div>
+<div style="margin-bottom: 50px">
+    <h2>Description: @Model.Description</h2>
+</div>
+@*<div style="margin-bottom: 50px">
+    Id: @Model.Restaurant.Cuisine
+</div>*@
+
+<a asp-controller="Category" asp-action="List" class="btn btn-dark">All Categories</a>

@@ -1,0 +1,32 @@
+﻿@model Category
+
+@using (Html.BeginForm("Edit", "Category", FormMethod.Post))
+{
+     @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="CategoryId" value="@Model.CategoryId"/>
+
+
+    <div class="form-group">
+        <label asp-for="@Model.CategoryName" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="@Model.CategoryName" class="form-control" value="@Model.CategoryName"/>
+            <span asp-validation-for="@Model.CategoryName" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Description" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="@Model.Description" class="form-control" value="@Model.Description"/>
+            <span asp-validation-for="@Model.Description" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-5">
+            <input type="submit" class="btn btn-primary" value="Update" />
+        </div>
+    </div>
+
+ <a asp-controller="Category" asp-action="List" class ="btn btn-secondary">Back to categories</a> 
+}

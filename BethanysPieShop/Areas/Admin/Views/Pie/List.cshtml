@@ -1,0 +1,44 @@
+﻿@using BethanysPieShop.ViewModels
+@model AdminPiesListViewModel
+
+  <h2>Pies</h2>
+         
+<form method="get" asp-controller="Pie" asp-action="List">
+    <div class="form-group">
+        <div class="input-group">
+            <input type="search" class="form-control" name="pieName" value=""/>
+            <span class="input-group-btn">
+                <button type="submit" class="btn btn-outline-dark">
+                    Search  
+                </button>
+            </span>
+        </div>
+    </div>
+</form>
+
+  @foreach (var pie in Model.Pies)
+  {
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>@pie.Name</h3>
+        </div>
+        <div class="panel-body flex-row">
+            <span>Description: @pie.ShortDescription</span>
+            <span>Price: @pie.Price</span>
+            <span>Category Name: @pie.Category.CategoryName</span>
+            <span hidden="hidden">Description: @pie.PieId</span>
+        </div>
+        <div class="panel-footer">
+            <a class="btn btn-lg" asp-controller="Pie" asp-action="Detail" asp-route-PieId="@pie.PieId">
+                <i class="glyphicon glyphicon-zoom-in"></i>
+            </a>
+            <a class="btn btn-lg" asp-controller="Pie" asp-action="Edit" asp-route-PieId="@pie.PieId">
+                <i class="glyphicon glyphicon-edit"></i>
+            </a>
+            <form asp-controller="Pie" asp-action="Delete" asp-route-PieId="@pie.PieId" 
+                onclick="return confirm('Are you sure you want to delete @pie.Name?')">
+                <button type="submit" class="btn btn-lg"><i class="glyphicon glyphicon-trash"></i></button>
+            </form>
+        </div>
+    </div>      
+  }
